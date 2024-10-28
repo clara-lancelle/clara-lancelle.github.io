@@ -38,7 +38,7 @@ function checkAnswer() {
 
         // Vérifie
         isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer || currentQuestion.answer2;
-
+        console.log(answerInput.value.trim().toLowerCase())
     if (isAnswerCorrect) {
         feedbackElement.textContent = "Bonne réponse";
         feedbackElement.classList.add("success");
