@@ -40,7 +40,7 @@ function checkAnswer() {
 
     if (currentQuestionIndex === 0) {
         // Vérifie pour la première question (chêne)
-        isAnswerCorrect = answerInput.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === currentQuestion.answer;
+        isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer || "chene";
     } else if (currentQuestionIndex === 3) {
         // Vérifie pour la date de naissance
         isAnswerCorrect = birthdateInput.value === "1939-07-27"; // Format YYYY-MM-DD
