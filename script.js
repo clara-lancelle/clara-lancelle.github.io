@@ -42,6 +42,7 @@ function checkAnswer() {
     if (isAnswerCorrect) {
         feedbackElement.textContent = "Bonne réponse";
         feedbackElement.classList.add("success");
+        feedbackElement.classList.remove("error");
         currentQuestionIndex++;
         answerInput.value = "";
         birthdateInput.value = "";
@@ -55,5 +56,6 @@ function checkAnswer() {
     } else {
         feedbackElement.textContent = "Incorrect, essayez encore.";
         feedbackElement.classList.add("error");
+        feedbackElement.classList.remove("success");
     }
 }
