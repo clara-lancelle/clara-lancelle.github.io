@@ -15,18 +15,45 @@ document.addEventListener("DOMContentLoaded", function () {
 
 function displayQuestion() {
     const questionElement = document.getElementById("question");
-    questionElement.textContent = questions[currentQuestionIndex].question;
+    const birthdateElement = document.getElementById("birthdate");
+    const answerElement = document.getElementById("answer");
+
+    if (currentQuestionIndex === 3) {
+        // Pour la question de la date de naissance, cacher le champ de texte
+        answerElement.classList.add("hidden");
+        birthdateElement.classList.remove("hidden");
+        questionElement.textContent = questions[currentQuestionIndex].question;
+    } else {
+        answerElement.classList.remove("hidden");
+        birthdateElement.classList.add("hidden");
+        questionElement.textContent = questions[currentQuestionIndex].question;
+    }
 }
 
 function checkAnswer() {
     const answerInput = document.getElementById("answer");
+    const birthdateInput = document.getElementById("birthdate");
     const feedbackElement = document.getElementById("feedback");
     const currentQuestion = questions[currentQuestionIndex];
 
-    if (answerInput.value.trim().toLowerCase() === currentQuestion.answer) {
+    let isAnswerCorrect = false;
+
+    if (currentQuestionIndex === 0) {
+        // Vérifie pour la première question (chêne)
+        isAnswerCorrect = answerInput.value.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "") === currentQuestion.answer;
+    } else if (currentQuestionIndex === 3) {
+        // Vérifie pour la date de naissance
+        isAnswerCorrect = birthdateInput.value === "1939-07-27"; // Format YYYY-MM-DD
+    } else {
+        // Vérifie pour les autres questions
+        isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer;
+    }
+
+    if (isAnswerCorrect) {
         feedbackElement.textContent = "Correct !";
         currentQuestionIndex++;
         answerInput.value = "";
+        birthdateInput.value = "";
 
         if (currentQuestionIndex < questions.length) {
             displayQuestion();

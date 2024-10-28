@@ -12,20 +12,31 @@ body {
 .container {
     background: white;
     padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
     text-align: center;
+    width: 300px;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    color: #2c3e50;
 }
 
 #question {
     font-size: 1.2em;
     margin-bottom: 20px;
+    color: #34495e;
 }
 
-input[type="text"] {
+input[type="text"],
+input[type="date"] {
     padding: 10px;
-    width: 80%;
+    width: 90%;
     margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
 }
 
 button {
@@ -35,6 +46,7 @@ button {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.3s;
 }
 
 button:hover {
@@ -44,8 +56,17 @@ button:hover {
 .feedback {
     margin-top: 10px;
     font-weight: bold;
+    color: red;
+    /* Couleur rouge pour les messages d'erreur */
 }
 
 .hidden {
     display: none;
+}
+
+#congratulations {
+    color: #28a745;
+    /* Couleur verte pour le message de félicitations */
+    font-size: 1.3em;
+    margin-top: 20px;
 }
