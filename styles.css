@@ -56,8 +56,14 @@ button:hover {
 .feedback {
     margin-top: 10px;
     font-weight: bold;
+}
+
+.feedback.success {
+    color: green;
+}
+
+.feedback.error {
     color: red;
-    /* Couleur rouge pour les messages d'erreur */
 }
 
 .hidden {

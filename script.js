@@ -1,6 +1,6 @@
 const questions = [
+    { question: "Comment s’appelait la première donneuse ?", answer: "martine paul" },
     { question: "À côté de quoi reposent-elles ?", answer: "chêne" },
-    { question: "Comment s’appelait la première ?", answer: "martine paul" },
     { question: "Quel est le prénom de maman ?", answer: "sylvia" },
     { question: "Quelle est ma date de naissance ?", answer: "27 juillet 1939" },
 ];
@@ -23,7 +23,7 @@ function displayQuestion() {
         // Pour la question de la date de naissance, cacher le champ de texte
         answerElement.classList.add("hidden");
         birthdateElement.classList.remove("hidden");
-        questionElement.textContent = questions[currentQuestionIndex].question;
+        questionElement.textContent = `Question ${questions[currentQuestionIndex] + 1} : questions[currentQuestionIndex].question`;
     } else {
         answerElement.classList.remove("hidden");
         birthdateElement.classList.add("hidden");
@@ -51,7 +51,8 @@ function checkAnswer() {
     }
 
     if (isAnswerCorrect) {
-        feedbackElement.textContent = "Correct !";
+        feedbackElement.textContent = "Bonne réponse";
+        feedbackElement.classList.add = "success";
         currentQuestionIndex++;
         answerInput.value = "";
         birthdateInput.value = "";
@@ -64,5 +65,6 @@ function checkAnswer() {
         }
     } else {
         feedbackElement.textContent = "Incorrect, essayez encore.";
+        feedbackElement.classList.add = "error";
     }
 }
