@@ -1,6 +1,6 @@
 const questions = [
     { question: "Comment s’appelait la première donneuse ?", answer: "martine paul" },
-    { question: "À côté de quoi reposent-elles ?", answer: "chêne" },
+    { question: "À côté de quoi reposent-elles ?", answer: "chêne", answer2: "chene" },
     { question: "Quel est le prénom de maman ?", answer: "sylvia" },
     { question: "Quelle est ma date de naissance ?", answer: "27 juillet 1939" },
 ];
@@ -9,8 +9,7 @@ let currentQuestionIndex = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     displayQuestion();
-
-    document.getElementById("submit").addEventListener("submit", checkAnswer);
+    document.getElementById("question-container").addEventListener("submit", checkAnswer);
     document.getElementById("submit").addEventListener("click", checkAnswer);
 });
 
@@ -39,20 +38,18 @@ function checkAnswer() {
 
     let isAnswerCorrect = false;
 
-    if (currentQuestionIndex === 0) {
-        // Vérifie pour la première question (chêne)
-        isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer || "chene";
-    } else if (currentQuestionIndex === 3) {
+   
+    if (currentQuestionIndex === 3) {
         // Vérifie pour la date de naissance
         isAnswerCorrect = birthdateInput.value === "1939-07-27"; // Format YYYY-MM-DD
     } else {
         // Vérifie pour les autres questions
-        isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer;
+        isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer || currentQuestion.answer2;
     }
 
     if (isAnswerCorrect) {
         feedbackElement.textContent = "Bonne réponse";
-        feedbackElement.classList.add = "success";
+        feedbackElement.classList.add("success");
         currentQuestionIndex++;
         answerInput.value = "";
         birthdateInput.value = "";
@@ -65,6 +62,6 @@ function checkAnswer() {
         }
     } else {
         feedbackElement.textContent = "Incorrect, essayez encore.";
-        feedbackElement.classList.add = "error";
+        feedbackElement.classList.add("error");
     }
 }
