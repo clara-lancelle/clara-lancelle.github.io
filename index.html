@@ -1,11 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratoire</title>
-</head>
-<body>
-    Lucius Delmaure
-</body>
+<html lang="fr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Énigme du Labo de Lucius</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+
+    <body>
+        <div class="container">
+            <h1>Bienvenue dans l'Énigme du Labo de Lucius</h1>
+            <div id="question-container">
+                <p id="question"></p>
+                <input type="text" id="answer" placeholder="Votre réponse ici" />
+                <button id="submit">Soumettre</button>
+                <p id="feedback" class="feedback"></p>
+            </div>
+            <p id="congratulations" class="hidden">Félicitations ! Vous avez accès au labo de Lucius.</p>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
+
 </html>
