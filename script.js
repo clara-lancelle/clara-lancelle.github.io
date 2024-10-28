@@ -2,7 +2,7 @@ const questions = [
     { question: "Comment s’appelait la première donneuse ?", answer: "martine paul" },
     { question: "À côté de quoi reposent-elles ?", answer: "chêne", answer2: "chene" },
     { question: "Quel est le prénom de maman ?", answer: "sylvia" },
-    { question: "Quelle est ma date de naissance ?", answer: "27/07/1939" },
+    { question: "Quelle est ma date de naissance ?", answer: "1939-07-27" },
 ];
 
 let currentQuestionIndex = 0;
@@ -35,10 +35,17 @@ function checkAnswer() {
     const currentQuestion = questions[currentQuestionIndex];
 
     let isAnswerCorrect = false;
-
         // Vérifie
+    if (currentQuestionIndex === 3) {
+        // Vérifie pour la date de naissance
+        isAnswerCorrect = birthdateInput.value === currentQuestion.answer;
+        console.log(currentQuestion.answer)
+        console.log(birthdateInput.value)
+        
+    } else {
         isAnswerCorrect = answerInput.value.trim().toLowerCase() === currentQuestion.answer || currentQuestion.answer2;
-        console.log(answerInput.value.trim().toLowerCase())
+    }
+
     if (isAnswerCorrect) {
         feedbackElement.textContent = "Bonne réponse";
         feedbackElement.classList.add("success");
