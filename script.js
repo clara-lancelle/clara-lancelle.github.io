@@ -10,6 +10,7 @@ let currentQuestionIndex = 0;
 document.addEventListener("DOMContentLoaded", function () {
     displayQuestion();
 
+    document.getElementById("submit").addEventListener("submit", checkAnswer);
     document.getElementById("submit").addEventListener("click", checkAnswer);
 });
 
