@@ -9,7 +9,10 @@ let currentQuestionIndex = 0;
 
 document.addEventListener("DOMContentLoaded", function () {
     displayQuestion();
-    document.getElementById("question-container").addEventListener("submit", checkAnswer);
+    document.getElementById("question-container").addEventListener("submit", function(event){
+        event.preventDefault()
+        checkAnswer
+    });
     document.getElementById("submit").addEventListener("click", checkAnswer);
 });
 
